@@ -1,0 +1,139 @@
+/* Main Styles for Hoopscope Website */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000;
+    color: #E2E8F0;
+}
+
+.holographic-glow-hard {
+     text-shadow: 0 0 8px rgba(251, 146, 60, 0.5), 0 0 12px rgba(249, 115, 22, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-animate {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(20px);
+}
+
+.scroll-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Background Gradients */
+.gradient-bg-dark {
+    background: #050505;
+}
+
+.gradient-bg-light {
+    background: radial-gradient(ellipse at 50% 100%, #1c1106 0%, #000000 70%);
+}
+
+.cta-gradient {
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+}
+
+/* UI Elements */
+.icon-bg {
+    background-color: rgba(251, 146, 60, 0.1);
+    border: 1px solid rgba(251, 146, 60, 0.2);
+}
+
+.card-bg {
+    background-color: #111111;
+    border: 1px solid #27272A;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-bg:hover {
+    transform: translateY(-5px);
+    border-color: #fb923c;
+    box-shadow: 0 10px 25px -5px rgba(251, 146, 60, 0.1), 0 8px 10px -6px rgba(251, 146, 60, 0.1);
+}
+
+.hero-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 1)), url('https://images.unsplash.com/photo-1515523110800-9415d13b84a8?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Modal Styles */
+.modal-bg {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal {
+    animation: zoomIn 0.3s ease-out;
+}
+
+/* Loader Animation */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loader {
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-left-color: #F97316;
+    animation: spin 1s linear infinite;
+    border-radius: 50%;
+}
+
+/* Aspect Ratio Utility Classes for Video */
+.aspect-w-16 {
+    position: relative;
+    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+    --tw-aspect-w: 16;
+}
+
+.aspect-h-9 {
+    --tw-aspect-h: 9;
+}
+
+.aspect-w-16 > * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/* Accessibility & Focus Styles */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px solid #F97316;
+    outline-offset: 2px;
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 640px) {
+    .card-bg {
+        padding: 1rem;
+    }
+    
+    .card-bg:hover {
+        transform: translateY(-3px);
+    }
+}
+
+/* Image Lazy Loading Helper */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
